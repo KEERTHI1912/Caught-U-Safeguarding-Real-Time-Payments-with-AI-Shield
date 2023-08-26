@@ -6,9 +6,5 @@ Django==4.1.7
 pytz==2021.1
 sqlparse==0.4.3
 psycopg2-binary==2.9.6
-pandas
-scikit-learn
-urllib3==2.0.3
-idna==3.4
-certifi==2023.5.7
+
 
