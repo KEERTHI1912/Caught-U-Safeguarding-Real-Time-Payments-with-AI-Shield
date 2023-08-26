@@ -25,7 +25,7 @@ SECRET_KEY = '!jm-wo+zp$+p9o!tbvqr=)aj2!m6ee*v_ca7^p2slj^%426#s9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'FDS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD':'hA3fn7E4UYzAdunuvlPp',
+        'HOST':'containers-us-west-165.railway.app',
+        'PORT':'6152',
     }
 }
 
