@@ -1,7 +1,7 @@
 import io
 import pickle
 import pandas as pd
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render_to_response,redirect,get_object_or_404
 from django.http.response import HttpResponseRedirect,HttpResponse,JsonResponse
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth import authenticate, login, logout
@@ -15,26 +15,26 @@ from sklearn.metrics import precision_score
 
 
 def base(request):
-    return render(request,'homeApp/landing_page.html')
+    return render_to_response(request,'homeApp/landing_page.html')
     
 def upload_credit_data(request):
-    return render(request,'homeApp/upload_credit_data.html')
+    return render_to_response(request,'homeApp/upload_credit_data.html')
 
 def prediction_button(request,id):
-    return render(request,'homeApp/fraud_detection.html', {'id': id})
+    return render_to_response(request,'homeApp/fraud_detection.html', {'id': id})
     
 def reports(request):
     all_data_files_objs=DataFileUpload.objects.all()
-    return render(request,'homeApp/reports.html',{'all_files':all_data_files_objs})
+    return render_to_response(request,'homeApp/reports.html',{'all_files':all_data_files_objs})
     
 def enter_form_data_manually(request):
-    return render(request,'homeApp/enter_form_data_manually.html')
+    return render_to_response(request,'homeApp/enter_form_data_manually.html')
 
 def predict_data_manually(request):
-    return render(request,'homeApp/predict_data_manually.html')
+    return render_to_response(request,'homeApp/predict_data_manually.html')
 
 def add_files_single(request, id):
-    return render(request,'homeApp/add_files_single.html', {'id': id})
+    return render_to_response(request,'homeApp/add_files_single.html', {'id': id})
 
 def predict_csv_single(request,id):
     if request.method == 'POST':
@@ -69,14 +69,14 @@ def predict_csv_single(request,id):
                 'data': dataFrame.iloc[0]
             }
         
-            return render(request,'homeApp/predict_csv_single.html', context)
+            return render_to_response(request,'homeApp/predict_csv_single.html', context)
                 
         except:
             messages.warning(request, "Invalid/wrong format. Please upload File.")
             return  redirect(f'/add_files_single/{id}')
 
 def add_files_multi(request, id):
-    return render(request,'homeApp/add_files_multi.html', {'id': id})
+    return render_to_response(request,'homeApp/add_files_multi.html', {'id': id})
     
 def predict_csv_multi(request, id):
     if request.method == 'POST':
@@ -113,16 +113,16 @@ def predict_csv_multi(request, id):
                 'combined_data': combined_data,
             }
         
-            return render(request,'homeApp/predict_csv_multi.html', context)
+            return render_to_response(request,'homeApp/predict_csv_multi.html', context)
                 
         except:
             messages.warning(request, "Invalid/wrong format. Please upload File.")
             return  redirect(f'/add_files_multi/{id}')
 
 def account_details(request):
-    return render(request,'homeApp/account_details.html')
+    return render_to_response(request,'homeApp/account_details.html')
 def change_password(request):
-    return render(request,'homeApp/change_password.html')
+    return render_to_response(request,'homeApp/change_password.html')
 def analysis(request,id):
     obj = DataFileUpload.objects.get(id=id)
     df = pd.read_csv(obj.actual_file.path)
@@ -162,12 +162,12 @@ def analysis(request,id):
         'normal_shape': normal_shape
     }
 
-    return render(request,'homeApp/analysis.html', context)
+    return render_to_response(request,'homeApp/analysis.html', context)
 def view_data(request,id):
     obj = DataFileUpload.objects.get(id=id)
     df = pd.read_csv(obj.actual_file.path)
     columns = df.columns.tolist()
-    return render(request,'homeApp/view_data.html', {'id': id, 'columns': columns})
+    return render_to_response(request,'homeApp/view_data.html', {'id': id, 'columns': columns})
 def delete_data(request,id):
     obj=DataFileUpload.objects.get(id=id)
     obj.delete()
@@ -267,14 +267,14 @@ def login2(request):
         
         else:    
             data['error'] = "Username or Password is incorrect"
-            res = render(request, 'homeApp/login.html', data)
+            res = render_to_response(request, 'homeApp/login.html', data)
             return res
     else:
-        return render(request, 'homeApp/login.html', data)
+        return render_to_response(request, 'homeApp/login.html', data)
 
 
 def about(request):
-    return render(request,'homeApp/about.html')
+    return render_to_response(request,'homeApp/about.html')
 
 def dashboard(request):
-    return render(request,'homeApp/dashboard.html')
+    return render_to_response(request,'homeApp/dashboard.html')
