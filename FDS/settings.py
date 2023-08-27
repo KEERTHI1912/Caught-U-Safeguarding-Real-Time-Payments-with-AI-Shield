@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
 ]
 LOGIN_REDIRECT_URL = '/home_page'
+CSRF_TRUSTED_ORIGINS = ['https://web-production-81cf.up.railway.app/']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
