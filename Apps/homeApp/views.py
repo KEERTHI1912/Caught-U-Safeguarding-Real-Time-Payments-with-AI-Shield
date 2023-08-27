@@ -1,7 +1,7 @@
 import io
 import pickle
 import pandas as pd
-from django.shortcuts import render,render,redirect,get_object_or_404
+from django.shortcuts import render,render_to_response,redirect,get_object_or_404
 from django.http.response import HttpResponseRedirect,HttpResponse,JsonResponse
 from django.template import RequestContext
 from django.contrib.auth import get_user_model, authenticate
@@ -268,10 +268,10 @@ def login2(request):
         
         else:    
             data['error'] = "Username or Password is incorrect"
-            res = render(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
+            res = render_to_response(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
             return res
     else:
-        return render(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
+        return render_to_response(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
 
 
 def about(request):
