@@ -29,8 +29,7 @@ CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ['web-production-81cf.up.railway.app','127.0.0:1']
 
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ['https://web-production-81cf.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-81cf.up.railway.app',]
 
 
 # Application definition

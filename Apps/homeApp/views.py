@@ -2,7 +2,6 @@ import io
 import pickle
 import pandas as pd
 from django.shortcuts import render,redirect,get_object_or_404
-from django.template.context_processors import csrf
 from django.http.response import HttpResponseRedirect,HttpResponse,JsonResponse
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth import authenticate, login, logout
@@ -257,7 +256,6 @@ def userLogout(request):
 
 def login2(request):
     data = {}
-    data.update(csrf(request))
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
