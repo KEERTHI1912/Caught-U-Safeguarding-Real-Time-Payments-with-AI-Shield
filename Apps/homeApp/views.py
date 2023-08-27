@@ -268,10 +268,10 @@ def login2(request):
         
         else:    
             data['error'] = "Username or Password is incorrect"
-            res = render_to_response(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
+            res = render(request, 'homeApp/login.html', data)
             return res
     else:
-        return render_to_response(request, 'homeApp/login.html', data,context_instance=RequestContext(request))
+        return render(request, 'homeApp/login.html', data)
 
 
 def about(request):
