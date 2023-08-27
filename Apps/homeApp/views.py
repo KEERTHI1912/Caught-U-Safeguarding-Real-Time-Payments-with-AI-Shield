@@ -1,9 +1,8 @@
 import io
 import pickle
 import pandas as pd
-from django.shortcuts import render,render_to_response,redirect,get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http.response import HttpResponseRedirect,HttpResponse,JsonResponse
-from django.template import RequestContext
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
