@@ -27,9 +27,9 @@ DEBUG = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['web-production-81cf.up.railway.app','127.0.0.1','caught-u.azurewebsites.net']
+ALLOWED_HOSTS = ['127.0.0.1','caught-u.azurewebsites.net']
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-81cf.up.railway.app',]
+CSRF_TRUSTED_ORIGINS = ['https://caught-u.azurewebsites.net/',]
 
 
 # Application definition
