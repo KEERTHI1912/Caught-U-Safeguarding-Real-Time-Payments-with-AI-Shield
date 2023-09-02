@@ -85,11 +85,12 @@ WSGI_APPLICATION = 'FDS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'hA3fn7E4UYzAdunuvlPp',
-        'HOST':'containers-us-west-165.railway.app',
-        'PORT':'6152',
+        'NAME': 'caughtu',
+        'USER':'Keerthi',
+        'PASSWORD':'Django@123',
+        'HOST':'caught-u-db.postgres.database.azure.com',
+        'PORT':'5432',
+        'OPTIONS':{'sslmode':'require'},
     }
 }
 
