@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '!jm-wo+zp$+p9o!tbvqr=)aj2!m6ee*v_ca7^p2slj^%426#s9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['web-production-81cf.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = ['web-production-81cf.up.railway.app','127.0.0.1','caught-u.azurewebsites.net']
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-81cf.up.railway.app',]
 
