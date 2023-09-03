@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import DataFileUpload
-
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler

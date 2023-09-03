@@ -27,9 +27,8 @@ DEBUG = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['127.0.0.1','caught-u.azurewebsites.net']
-
-CSRF_TRUSTED_ORIGINS = ['https://caught-u.azurewebsites.net/',]
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
+CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
 
 
 # Application definition
